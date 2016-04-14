@@ -1,2 +1,0 @@
- - leantegra-android-sdk_1.0.0.aar -- PowerMote SDK library;
- - leantegra-andoid-sdk_1.0.0-javadoc.jar -- JavaDocs for PowerMote SDK.

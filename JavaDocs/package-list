@@ -1,0 +1,14 @@
+com.leantegra.powermote.sdk
+com.leantegra.powermote.sdk.cloud
+com.leantegra.powermote.sdk.cloud.converter
+com.leantegra.powermote.sdk.cloud.model
+com.leantegra.powermote.sdk.device
+com.leantegra.powermote.sdk.device.connection
+com.leantegra.powermote.sdk.device.info
+com.leantegra.powermote.sdk.monitoring
+com.leantegra.powermote.sdk.monitoring.distance
+com.leantegra.powermote.sdk.monitoring.info
+com.leantegra.powermote.sdk.monitoring.listeners
+com.leantegra.powermote.sdk.monitoring.service
+com.leantegra.powermote.sdk.monitoring.service.scanner
+com.leantegra.powermote.sdk.utils
