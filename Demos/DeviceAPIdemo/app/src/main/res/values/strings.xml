@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Device API demo</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="error">Error</string>
+    <string name="operation_mode">Operation mode</string>
+    <string name="tx_power_level">Tx power level</string>
+    <string name="advertising_interval">Advertising interval</string>
+    <string name="name">Name</string>
+</resources>

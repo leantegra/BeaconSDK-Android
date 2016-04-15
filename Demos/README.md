@@ -1,0 +1,1 @@
+Demo applications to demonstrate PowerMote SDK posibilities.
