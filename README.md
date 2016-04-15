@@ -36,3 +36,13 @@ Features:
   LeantegraSDK.initialize(applicationContext);
   ```
 
+## How to use
+
+### Documentation
+
+JavaDocs for PowerMote SDK you can find [here](http://leantegra.github.io/AndroidPowerMoteSDK/JavaDocs/).
+
+### Demo Applications
+
+Demo applications you can find [here](https://github.com/leantegra/AndroidPowerMoteSDK/tree/master/Demos).
+
