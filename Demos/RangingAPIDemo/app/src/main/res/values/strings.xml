@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Ranging API Demo</string>
+    <string name="error">Error</string>
+    <string name="error_permission">Permission not granted. Can`t start ranging</string>
+</resources>
