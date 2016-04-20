@@ -1,6 +1,6 @@
 # PowerMote SDK for Android #
 
-The PowerMote SDK for Android is a library that allows interaction with [PowerMotes](http://http://leantegra.com/pm).
+The PowerMote SDK for Android is a library that allows interaction with [PowerMotes](http://leantegra.com/pm).
 It works with Android 4.4 (API level 19) or above and requires Bluetooth Low Energy support.
 
 Features:
