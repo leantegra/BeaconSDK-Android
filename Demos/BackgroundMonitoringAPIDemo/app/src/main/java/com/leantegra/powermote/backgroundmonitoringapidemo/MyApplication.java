@@ -7,6 +7,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.media.RingtoneManager;
+import android.os.Build;
 import android.support.v4.content.ContextCompat;
 
 import com.leantegra.powermote.sdk.monitoring.BackgroundManager;
@@ -30,8 +31,9 @@ public class MyApplication extends Application implements BackgroundManager.Back
     public void onCreate() {
         super.onCreate();
         //Check coarse location permission
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ||
+                ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                        == PackageManager.PERMISSION_GRANTED) {
             startMonitoring();
         }
     }
