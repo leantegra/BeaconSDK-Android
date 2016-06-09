@@ -5,7 +5,7 @@ It works with Android 4.4 (API level 19) or above and requires Bluetooth Low Ene
 
 Features:
 - PowerMote management: connect\disconnect, read\write all info from nearby device;
-- PowerMote ranging: scanning for nearby devices, filtering by specified properties, distance to device (IMMEDIATE, NEAR, FAR zones; discante in meters), distance tunning and calibration functionality;
+- PowerMote ranging: scanning for nearby devices, filtering by specified properties, distance to device (IMMEDIATE, NEAR, FAR zones; distance in meters), distance tunning and calibration functionality;
 - PowerMote monitoring: monitors Enter\Exit events for predefined regions that can be defined by multiple rules (UUID, distance, zone, Major, Minor etc.)
 
 ## Installation
