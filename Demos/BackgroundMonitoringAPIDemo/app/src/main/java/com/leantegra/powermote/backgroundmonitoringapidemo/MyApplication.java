@@ -39,13 +39,11 @@ public class MyApplication extends Application implements BackgroundManager.Back
     }
 
     public void startMonitoring() {
-        //Set background scan period
-        MonitoringManager.INSTANCE.setBackgroundScanPeriod(5000, 25000);
         //Init region list
         ArrayList<Region> regionArrayList = new ArrayList<>(1);
         regionArrayList.add(new Region.Builder(1)
-                .setAddress("F1:45:87:51:CD:5F")
-                .setProximityZone(ProximityZone.NEAR).build());
+                .addAddress("F1:45:87:51:CD:5F")
+                .setProximityZone(ProximityZone.IMMEDIATE).build());
         //Init background manager
         mBackgroundManager = new BackgroundManager(this, regionArrayList, this);
         //Start scan

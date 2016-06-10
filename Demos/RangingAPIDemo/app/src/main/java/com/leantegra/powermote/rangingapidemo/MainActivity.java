@@ -2,6 +2,7 @@ package com.leantegra.powermote.rangingapidemo;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -19,11 +20,13 @@ import android.support.v4.util.ArrayMap;
 
 import com.leantegra.powermote.sdk.monitoring.MonitoringManager;
 import com.leantegra.powermote.sdk.monitoring.info.BaseFrame;
+import com.leantegra.powermote.sdk.monitoring.info.EddystoneUrlFrame;
+import com.leantegra.powermote.sdk.monitoring.info.IBeaconFrame;
+import com.leantegra.powermote.sdk.monitoring.info.TagFrame;
 import com.leantegra.powermote.sdk.monitoring.listeners.ScanListener;
 import com.leantegra.powermote.sdk.monitoring.listeners.ServiceConnectionListener;
 import com.leantegra.powermote.sdk.monitoring.service.ScanError;
 
-import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -54,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         //Check coarse location permission
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ||
                 ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
+                        == PackageManager.PERMISSION_GRANTED) {
             startRanging();
         } else {
             ActivityCompat.requestPermissions(this,
@@ -135,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private class Adapter extends RecyclerView.Adapter<ViewHolder> {
+
         @Override
         public int getItemCount() {
             return mFoundedDeviceMap.size();
@@ -150,8 +154,46 @@ public class MainActivity extends AppCompatActivity {
         public void onBindViewHolder(ViewHolder holder, int position) {
             BaseFrame frame = mFoundedDeviceMap.valueAt(position);
             holder.mTextView.setText(frame.getBluetoothDevice().getAddress());
-            holder.mTextView2.setText(String.format(Locale.getDefault(), "%.0fm", frame.getDistance()));
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(String.format(Locale.getDefault(), "Dist. %.1fm", frame.getDistance()));
+            stringBuilder.append("\n");
+            switch (frame.getType()) {
+                case EDDYSTONE_URL: {
+                    stringBuilder.append(String.format(Locale.getDefault(), "Url: %s", ((EddystoneUrlFrame) frame).getURL()));
+                }
+                break;
+
+                case I_BEACON: {
+                    stringBuilder.append(String.format(Locale.getDefault(), "Major id: %s; Minor id: %s",
+                            ((IBeaconFrame) frame).getMajor(), ((IBeaconFrame) frame).getMinor()));
+                }
+                break;
+
+                case TAG: {
+                    stringBuilder.append(String.format(Locale.getDefault(), "Device id: %s; Network id: %s",
+                            ((TagFrame) frame).getDeviceID(), ((TagFrame) frame).getNetworkID()));
+                }
+                break;
+            }
+            holder.mTextView2.setText(stringBuilder.toString());
             holder.mTextView4.setText(frame.getProximityZone().toString());
+            switch (frame.getProximityZone()){
+                case IMMEDIATE:{
+                    holder.itemView.setBackgroundResource(R.color.colorImmediate);
+                }break;
+
+                case NEAR:{
+                    holder.itemView.setBackgroundResource(R.color.colorNear);
+                }break;
+
+                case FAR:{
+                    holder.itemView.setBackgroundResource(R.color.colorFar);
+                }break;
+
+                default:{
+                    holder.itemView.setBackgroundColor(Color.WHITE);
+                }break;
+            }
             holder.mTextView3.setText(frame.getType().toString());
         }
     }
