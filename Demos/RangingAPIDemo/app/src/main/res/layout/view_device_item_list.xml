@@ -9,7 +9,9 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
-        android:id="@+id/textView" />
+        android:id="@+id/textView"
+        android:textIsSelectable="false"
+        android:textSize="16dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,7 +20,8 @@
         android:text="Medium Text"
         android:id="@+id/textView2"
         android:layout_below="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
+        android:layout_alignStart="@+id/textView"
+        android:textSize="12dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,7 +30,9 @@
         android:text="Medium Text"
         android:id="@+id/textView3"
         android:layout_alignTop="@+id/textView"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textIsSelectable="false"
+        android:textSize="16dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,6 +41,7 @@
         android:text="Medium Text"
         android:id="@+id/textView4"
         android:layout_below="@+id/textView3"
-        android:layout_alignEnd="@+id/textView3" />
+        android:layout_alignEnd="@+id/textView3"
+        android:textSize="12dp"/>
 
 </RelativeLayout>

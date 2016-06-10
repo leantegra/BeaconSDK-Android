@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         });
         //Add region to monitoring
         MonitoringManager.INSTANCE.addMonitoringRegion(new Region.Builder(1)
-                .setAddress("F1:45:87:51:CD:5F")
+                .addAddress("F1:45:87:51:CD:5F")
                 .setProximityZone(ProximityZone.NEAR).build());
         //Create scan service
         MonitoringManager.INSTANCE.bind(this.getApplicationContext(), new ServiceConnectionListener() {

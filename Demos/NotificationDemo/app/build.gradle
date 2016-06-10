@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "com.leantegra.powermote.backgroundmonitoringapidemo"
+        applicationId "com.leantegra.powermote.notificationdemo"
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
@@ -24,4 +24,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile(name:'leantegra-android-sdk_1.1.0', ext:'aar')
+    compile 'com.google.android.gms:play-services-ads:8.4.0'
 }
