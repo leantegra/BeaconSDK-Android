@@ -55,5 +55,5 @@ Demo applications you can find [here](https://github.com/leantegra/AndroidPowerM
 
 ### Changelog
 
-The list of changes in PowerMote SDK for Android located in [CHANGELOG](https://github.com/leantegra/AndroidPowerMoteSDK/blob/master/PowerMoteSDK/CHANGELOG.md).
+The list of changes in PowerMote SDK for Android located in [CHANGELOG](https://github.com/leantegra/AndroidPowerMoteSDK/blob/master/CHANGELOG.md).
 
