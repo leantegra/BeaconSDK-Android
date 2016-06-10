@@ -1,5 +1,6 @@
 com.leantegra.powermote.sdk
 com.leantegra.powermote.sdk.cloud
+com.leantegra.powermote.sdk.cloud.analytics
 com.leantegra.powermote.sdk.cloud.converter
 com.leantegra.powermote.sdk.cloud.model
 com.leantegra.powermote.sdk.device
