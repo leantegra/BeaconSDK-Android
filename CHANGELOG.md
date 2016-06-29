@@ -1,5 +1,10 @@
 Changelog
 =====================
+## 1.1.1 (June 29, 2016)
+- Access token refreshing.
+- Class names fixing.
+- Bug fixing and improvements.
+
 ## 1.1.0 (June 10, 2016)
 - Added the PowerMote lock/unlock feature;
 - Low power scan in passive period for Lollipop and above;
