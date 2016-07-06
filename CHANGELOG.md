@@ -1,5 +1,8 @@
 Changelog
 =====================
+## 1.1.2 (July 6, 2016)
+- New server address by default.
+
 ## 1.1.1 (June 29, 2016)
 - Access token refreshing.
 - Class names fixing.

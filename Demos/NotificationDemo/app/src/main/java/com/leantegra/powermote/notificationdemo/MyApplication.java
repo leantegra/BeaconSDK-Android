@@ -21,7 +21,7 @@ public class MyApplication extends Application implements AdvertisingNotificatio
     public void onCreate() {
         super.onCreate();
         //Initialize SDK
-        LeantegraSDK.initialize("clientId", "clientSecret");
+        LeantegraSDK.initialize("m2m", "m2m");
         //Create content intent
         Intent intent = new Intent(getBaseContext(), MainActivity.class);
         //Create notification builder
