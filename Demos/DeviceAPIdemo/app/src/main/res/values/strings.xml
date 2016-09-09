@@ -4,7 +4,7 @@
     <string name="disconnect">Disconnect</string>
     <string name="error">Error</string>
     <string name="operation_mode">Operation mode</string>
-    <string name="tx_power_level">Tx power level</string>
+    <string name="tx_power_mode">Tx power mode</string>
     <string name="advertising_interval">Advertising interval</string>
     <string name="name">Name</string>
 </resources>

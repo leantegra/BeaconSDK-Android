@@ -1,0 +1,2 @@
+ - leantegra-android-sdk_1.2.0.aar -- WiBeat SDK library;
+ - leantegra-android-sdk_1.2.0-javadoc.jar -- JavaDocs for WiBeat SDK.

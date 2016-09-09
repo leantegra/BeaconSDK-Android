@@ -1,1 +1,1 @@
-Demo applications to demonstrate PowerMote SDK possibilities.
+Demo applications to demonstrate WiBeat SDK possibilities.

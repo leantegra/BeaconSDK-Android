@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "com.leantegra.powermote.monitoringapidemo"
+        applicationId "com.leantegra.wibeat.monitoringapidemo"
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
@@ -23,5 +23,5 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
-    compile(name:'leantegra-android-sdk_1.1.2', ext:'aar')
+    compile(name:'leantegra-android-sdk_1.2.0', ext:'aar')
 }
