@@ -1,5 +1,14 @@
 Changelog
 =====================
+## 1.2.0 (Sep 21, 2016)
+- CMS content caching in local DB.
+- Improved monitoring functionality.
+- Added onExit and Dwell events to monitoring.
+- Added new GATT characteristics support.
+- Updated the CMS client to new response.
+- Improved a battery consumptions during background scan.
+- Bug fixing and improvements.
+
 ## 1.1.2 (July 6, 2016)
 - New server address by default.
 
