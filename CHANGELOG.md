@@ -1,5 +1,10 @@
 Changelog
 =====================
+## 1.2.1 (Nov 1, 2016)
+- Added ability to customise proximity zones.
+- Support of new CMS API.
+- Bug fixing and improvements.
+
 ## 1.2.0 (Sep 21, 2016)
 - CMS content caching in local DB.
 - Improved monitoring functionality.
