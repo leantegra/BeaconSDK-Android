@@ -1,5 +1,12 @@
 Changelog
 =====================
+## 1.3.0 (Dec 29, 2016)
+- Eddystone GATT support.
+- Improved WiBeat scanning.
+- Customizable proximity zones.
+- Support of new CMS API.
+- Bug fixing and improvements.
+
 ## 1.2.1 (Nov 1, 2016)
 - Added ability to customise proximity zones.
 - Support of new CMS API.

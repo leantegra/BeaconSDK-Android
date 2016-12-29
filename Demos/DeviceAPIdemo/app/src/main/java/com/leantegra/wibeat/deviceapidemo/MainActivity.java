@@ -15,11 +15,11 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.leantegra.wibeat.sdk.device.OperationMode;
-import com.leantegra.wibeat.sdk.device.TXPowerMode;
 import com.leantegra.wibeat.sdk.device.connection.WiBeatCharacteristicType;
 import com.leantegra.wibeat.sdk.device.connection.WiBeatConnection;
 import com.leantegra.wibeat.sdk.device.connection.WiBeatError;
-import com.leantegra.wibeat.sdk.device.info.BaseDeviceInfo;
+
+import com.leantegra.wibeat.sdk.device.info.DeviceInfo;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     private CharacteristicsListAdapter mAdapter;
 
-    private BaseDeviceInfo mDeviceInfo;
+    private DeviceInfo mDeviceInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         //read all characteristics
         mWiBeatConnection.readDeviceInfo(new WiBeatConnection.DeviceInfoReadListener() {
             @Override
-            public void onSuccess(BaseDeviceInfo baseDeviceInfo) {
+            public void onSuccess(DeviceInfo baseDeviceInfo) {
                 mDeviceInfo = baseDeviceInfo;
                 mAdapter.notifyDataSetChanged();
             }
@@ -177,22 +177,22 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
-    private void showTXLevelDialog() {
-        final TXPowerMode[] values = TXPowerMode.values();
+    private void showRadioTXPowerDialog() {
+        final int[] values = new int[]{-15, -12, -8, -5, -2, 1, 5, 8};
         String[] strings = new String[values.length];
         for (int i = 0; i < values.length; i++) {
-            strings[i] = values[i].name();
+            strings[i] = String.valueOf(values[i]);
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setTitle(R.string.tx_power_mode);
+        builder.setTitle(R.string.radio_tx_power);
         builder.setItems(strings, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, final int which) {
-                mWiBeatConnection.writeTXPowerMode(values[which], new WiBeatConnection.WiBeatWriteListener() {
+                mWiBeatConnection.writeRadioTXPower(values[which], new WiBeatConnection.WiBeatWriteListener() {
                     @Override
                     public void onSuccess(WiBeatCharacteristicType powerMoteCharacteristicType) {
-                        mDeviceInfo = new BaseDeviceInfo.Builder(mDeviceInfo).setTxPowerMode(values[which]).build();
+                        mDeviceInfo = new DeviceInfo.Builder(mDeviceInfo).setRadioTXPower(values[which]).build();
                         mAdapter.notifyDataSetChanged();
                     }
 
@@ -217,7 +217,7 @@ public class MainActivity extends AppCompatActivity {
                 mWiBeatConnection.writeAdvertisingInterval(Integer.parseInt(values[which]), new WiBeatConnection.WiBeatWriteListener() {
                     @Override
                     public void onSuccess(WiBeatCharacteristicType powerMoteCharacteristicType) {
-                        mDeviceInfo = new BaseDeviceInfo.Builder(mDeviceInfo)
+                        mDeviceInfo = new DeviceInfo.Builder(mDeviceInfo)
                                 .setAdvertisingInterval(Integer.parseInt(values[which]))
                                 .build();
                         mAdapter.notifyDataSetChanged();
@@ -260,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
                 case 1: {
-                    showTXLevelDialog();
+                    showRadioTXPowerDialog();
                 }
                 break;
 
@@ -278,13 +278,13 @@ public class MainActivity extends AppCompatActivity {
             switch (position) {
                 case 0: {
                     titleResID = R.string.operation_mode;
-                    subTitle = mDeviceInfo.getOperationMode().toString();
+                    subTitle = "N/A";
                 }
                 break;
 
                 case 1: {
-                    titleResID = R.string.tx_power_mode;
-                    subTitle = String.valueOf(mDeviceInfo.getTxPowerMode());
+                    titleResID = R.string.radio_tx_power;
+                    subTitle = "N/A";
                 }
                 break;
 
