@@ -13,7 +13,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/textView"
-        android:text="F2:45:87:51:CD:5F"
+        android:text="56:49:85:50:2E:6F"
         android:layout_margin="5dp"/>
 
     <TextView
