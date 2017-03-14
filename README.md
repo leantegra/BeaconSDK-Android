@@ -1,13 +1,15 @@
 # WiBeat SDK for Android #
 
-The WiBeat SDK for Android is a library that allows interaction with [WiBeats](http://leantegra.com/pm).
+The WiBeat SDK for Android is a library that allows interaction with [WiBeats](http://leantegra.com/wibeat-ble-beacon).
 It works with Android 4.4 (API level 19) or above and requires Bluetooth Low Energy support.
 
 Features:
 - WiBeat management: connect\disconnect, read\write all info from nearby device;
 - WiBeat ranging: scanning for nearby devices, filtering by specified properties, distance to device (IMMEDIATE, NEAR, FAR zones; distance in meters), distance tunning and calibration functionality;
-- WiBeat monitoring: monitors Enter\Exit events for predefined regions that can be defined by multiple rules (UUID, distance, zone, Major, Minor etc.)
+- WiBeat monitoring: monitors Enter\Exit events for predefined regions that cyan be defined by multiple rules (UUID, distance, zone, Major, Minor etc.);
 - Integration with Leantegra CMS (notifications, multi-rules, analytics);
+- Mobile RTLS: calculates user's phone position in location that is covered by WiBeats;
+- Mobile Map: load and display location's map from CVO portal.
 
 ## Installation
 
