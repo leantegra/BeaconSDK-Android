@@ -31,7 +31,7 @@ public class MyApplication extends Application implements AdvertisingNotificatio
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
         //Initialize manager
         mManager = new AdvertisingNotificationManager(getApplicationContext(), intent, builder, this);
-        //Start detect wibeat
+        //Start detect WiBeat
         mManager.startScan();
     }
 

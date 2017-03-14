@@ -10,10 +10,12 @@ import android.media.RingtoneManager;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 
-import com.leantegra.wibeat.sdk.monitoring.BackgroundManager;
+import com.leantegra.wibeat.sdk.monitoring.BackgroundScanManager;
 import com.leantegra.wibeat.sdk.monitoring.distance.ProximityZone;
 import com.leantegra.wibeat.sdk.monitoring.info.BaseFrame;
 import com.leantegra.wibeat.sdk.monitoring.info.Region;
+import com.leantegra.wibeat.sdk.monitoring.listeners.BackgroundScanServiceConsumer;
+import com.leantegra.wibeat.sdk.monitoring.listeners.MonitoringListener;
 import com.leantegra.wibeat.sdk.monitoring.service.ScanError;
 
 import java.util.ArrayList;
@@ -22,9 +24,9 @@ import java.util.Locale;
 /**
  * Created by Artem Drozd on 19.04.16.
  */
-public class MyApplication extends Application implements BackgroundManager.BackgroundScanListener {
+public class MyApplication extends Application implements BackgroundScanServiceConsumer, MonitoringListener {
 
-    private BackgroundManager mBackgroundManager;
+    private BackgroundScanManager mBackgroundManager;
 
     @Override
     public void onCreate() {
@@ -38,15 +40,17 @@ public class MyApplication extends Application implements BackgroundManager.Back
     }
 
     public void startMonitoring() {
+        //Init background manager
+        mBackgroundManager = new BackgroundScanManager(this, this);
+        mBackgroundManager.setMonitoringListener(this);
         //Init region list
         ArrayList<Region> regionArrayList = new ArrayList<>(1);
         regionArrayList.add(new Region.Builder(1)
                 .addAddress("F2:45:87:51:CD:5F")
                 .setProximityZone(ProximityZone.IMMEDIATE).build());
-        //Init background manager
-        mBackgroundManager = new BackgroundManager(this, regionArrayList, this);
-        //Start scan
-        mBackgroundManager.startScan();
+        mBackgroundManager.addMonitoringRegion(regionArrayList);
+        //Connect to scan service
+        mBackgroundManager.bind();
     }
 
     @Override

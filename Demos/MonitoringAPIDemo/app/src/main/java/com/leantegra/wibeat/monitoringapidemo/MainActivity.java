@@ -12,17 +12,21 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.leantegra.wibeat.sdk.monitoring.MonitoringManager;
+import com.leantegra.wibeat.sdk.monitoring.ScanServiceManager;
 import com.leantegra.wibeat.sdk.monitoring.distance.ProximityZone;
 import com.leantegra.wibeat.sdk.monitoring.info.BaseFrame;
 import com.leantegra.wibeat.sdk.monitoring.info.Region;
 import com.leantegra.wibeat.sdk.monitoring.listeners.MonitoringListener;
-import com.leantegra.wibeat.sdk.monitoring.listeners.ServiceConnectionListener;
+import com.leantegra.wibeat.sdk.monitoring.listeners.ScanServiceConsumer;
 import com.leantegra.wibeat.sdk.monitoring.service.ScanError;
 
-public class MainActivity extends AppCompatActivity {
+import static com.leantegra.wibeat.sdk.monitoring.config.ScanConfig.SCAN_MODE_LOW_LATENCY;
+
+public class MainActivity extends AppCompatActivity implements ScanServiceConsumer {
 
     private static final int PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 1;
+
+    private ScanServiceManager mScanServiceManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,19 +67,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        //Stop scan
-        MonitoringManager.INSTANCE.stopScan();
-        //Stop scan service
-        MonitoringManager.INSTANCE.unbind();
+        if (mScanServiceManager != null) {
+            //Stop scan
+            mScanServiceManager.stopScan();
+            //Stop scan service
+            mScanServiceManager.unbind();
+            mScanServiceManager = null;
+        }
     }
 
     private void startMonitoring() {
+        //Create scan service manager
+        mScanServiceManager = new ScanServiceManager(this, this);
         //Set foreground scan period
-        MonitoringManager.INSTANCE.setForegroundScanPeriod(5000, 0);
+        mScanServiceManager.setForegroundScanPeriod(5000, 0);
         //Set scan mode
-        MonitoringManager.INSTANCE.setScanMode(MonitoringManager.SCAN_MODE_LOW_LATENCY);
+        mScanServiceManager.setScanMode(SCAN_MODE_LOW_LATENCY);
         //Set monitoring listener
-        MonitoringManager.INSTANCE.setMonitoringListener(new MonitoringListener() {
+        mScanServiceManager.setMonitoringListener(new MonitoringListener() {
             @Override
             public void onEnterRegion(Region region, BaseFrame baseFrame) {
                 ((TextView) findViewById(R.id.textView)).setText(R.string.enter_region);
@@ -89,27 +98,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //Add region to monitoring
-        MonitoringManager.INSTANCE.addMonitoringRegion(new Region.Builder(1)
-                .addAddress("F2:45:87:51:CD:5F")
+        mScanServiceManager.addMonitoringRegion(new Region.Builder(1)
+                .addAddress("56:49:85:50:2E:6F")
                 .setProximityZone(ProximityZone.NEAR).build());
-        //Create scan service
-        MonitoringManager.INSTANCE.bind(this.getApplicationContext(), new ServiceConnectionListener() {
-            @Override
-            public void onBind() {
-                //Start scan
-                MonitoringManager.INSTANCE.startScan();
-            }
-
-            @Override
-            public void onUnbind() {
-
-            }
-
-            @Override
-            public void onError(ScanError scanError) {
-                showErrorDialog(scanError.toString());
-            }
-        });
+        //Connect to scan service
+        mScanServiceManager.bind();
     }
 
     private void showErrorDialog(String error) {
@@ -119,4 +112,18 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
+    @Override
+    public void onBind() {
+
+    }
+
+    @Override
+    public void onUnbind() {
+
+    }
+
+    @Override
+    public void onError(ScanError scanError) {
+        showErrorDialog(scanError.toString());
+    }
 }

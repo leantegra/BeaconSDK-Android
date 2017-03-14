@@ -18,18 +18,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.util.ArrayMap;
 
-import com.leantegra.wibeat.sdk.monitoring.MonitoringManager;
+import com.leantegra.wibeat.sdk.monitoring.ScanServiceManager;
 import com.leantegra.wibeat.sdk.monitoring.info.BaseFrame;
 import com.leantegra.wibeat.sdk.monitoring.info.EddystoneUrlFrame;
 import com.leantegra.wibeat.sdk.monitoring.info.IBeaconFrame;
 import com.leantegra.wibeat.sdk.monitoring.info.TagFrame;
 import com.leantegra.wibeat.sdk.monitoring.listeners.ScanListener;
-import com.leantegra.wibeat.sdk.monitoring.listeners.ServiceConnectionListener;
+import com.leantegra.wibeat.sdk.monitoring.listeners.ScanServiceConsumer;
 import com.leantegra.wibeat.sdk.monitoring.service.ScanError;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+import static com.leantegra.wibeat.sdk.monitoring.config.ScanConfig.SCAN_MODE_LOW_LATENCY;
+
+public class MainActivity extends AppCompatActivity implements ScanServiceConsumer {
 
     private static final int PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 1;
 
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     private Adapter mAdapter;
 
     private ArrayMap<String, BaseFrame> mFoundedDeviceMap = new ArrayMap<>();
+
+    private ScanServiceManager mScanServiceManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,10 +88,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        //Stop scan
-        MonitoringManager.INSTANCE.stopScan();
-        //Stop scan service
-        MonitoringManager.INSTANCE.unbind();
+        if (mScanServiceManager != null) {
+            //Stop scan
+            mScanServiceManager.stopScan();
+            //Stop scan service
+            mScanServiceManager.unbind();
+            mScanServiceManager = null;
+        }
     }
 
     private void showErrorDialog(String error) {
@@ -99,12 +106,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void startRanging() {
+        //Create scan service manager
+        mScanServiceManager = new ScanServiceManager(this, this);
         //Set foreground scan period
-        MonitoringManager.INSTANCE.setForegroundScanPeriod(5000, 0);
+        mScanServiceManager.setForegroundScanPeriod(5000, 0);
         //Set scan mode
-        MonitoringManager.INSTANCE.setScanMode(MonitoringManager.SCAN_MODE_LOW_LATENCY);
+        mScanServiceManager.setScanMode(SCAN_MODE_LOW_LATENCY);
         //Set scan listener or use setRangingListener()
-        MonitoringManager.INSTANCE.setScanListener(new ScanListener() {
+        mScanServiceManager.setScanListener(new ScanListener() {
             @Override
             public void onScanResult(BaseFrame baseFrame) {
                 String key = baseFrame.getBluetoothDevice().getAddress();
@@ -117,24 +126,23 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        //Create scan service
-        MonitoringManager.INSTANCE.bind(this.getApplicationContext(), new ServiceConnectionListener() {
-            @Override
-            public void onBind() {
-                //Start scan
-                MonitoringManager.INSTANCE.startScan();
-            }
+        //Connect to scan service
+        mScanServiceManager.bind();
+    }
 
-            @Override
-            public void onUnbind() {
+    @Override
+    public void onBind() {
 
-            }
+    }
 
-            @Override
-            public void onError(ScanError scanError) {
-                showErrorDialog(scanError.toString());
-            }
-        });
+    @Override
+    public void onUnbind() {
+
+    }
+
+    @Override
+    public void onError(ScanError scanError) {
+        showErrorDialog(scanError.toString());
     }
 
     private class Adapter extends RecyclerView.Adapter<ViewHolder> {
