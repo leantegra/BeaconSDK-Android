@@ -1,7 +1,6 @@
 com.leantegra.wibeat.sdk
 com.leantegra.wibeat.sdk.cloud
 com.leantegra.wibeat.sdk.cloud.analytics
-com.leantegra.wibeat.sdk.cloud.converter
 com.leantegra.wibeat.sdk.cloud.model
 com.leantegra.wibeat.sdk.database
 com.leantegra.wibeat.sdk.database.dao
@@ -11,9 +10,12 @@ com.leantegra.wibeat.sdk.device.adv
 com.leantegra.wibeat.sdk.device.connection
 com.leantegra.wibeat.sdk.device.info
 com.leantegra.wibeat.sdk.monitoring
+com.leantegra.wibeat.sdk.monitoring.config
 com.leantegra.wibeat.sdk.monitoring.distance
 com.leantegra.wibeat.sdk.monitoring.info
 com.leantegra.wibeat.sdk.monitoring.listeners
 com.leantegra.wibeat.sdk.monitoring.service
 com.leantegra.wibeat.sdk.monitoring.service.scanner
+com.leantegra.wibeat.sdk.rtls
+com.leantegra.wibeat.sdk.rtls.map
 com.leantegra.wibeat.sdk.utils
