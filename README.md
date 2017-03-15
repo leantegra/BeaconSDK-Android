@@ -42,7 +42,7 @@ Features:
 
   ```java
   LeantegraSDK.initialize(applicationContext);
-  LeantegraCmsClient mLeantegraCmsClient = new LeantegraCmsClient(applicationContext);
+  ApplicationCmsClient applicationCmsClient = CmsClientFactory.createApplicationCmsClient(applicationContext);
   ```
 
 ## How to use
