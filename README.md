@@ -7,7 +7,7 @@ Features:
 - WiBeat management: connect\disconnect, read\write all info from nearby device;
 - WiBeat ranging: scanning for nearby devices, filtering by specified properties, distance to device (IMMEDIATE, NEAR, FAR zones; distance in meters), distance tunning and calibration functionality;
 - WiBeat monitoring: monitors Enter\Exit events for predefined regions that cyan be defined by multiple rules (UUID, distance, zone, Major, Minor etc.);
-- Integration with Leantegra CMS (notifications, multi-rules, analytics);
+- Integration with Leantegra CMS (notifications, multi-rules, analytics, proximity analytics);
 - Mobile RTLS: calculates user's phone position in location that is covered by WiBeats;
 - Mobile Map: load and display location's map from CVO portal.
 
@@ -15,7 +15,7 @@ Features:
 
 ### Manual installation
 
-1. Put [leantegra-android-sdk_1.4.0.aar](https://github.com/leantegra/AndroidWiBeatSDK/blob/master/WiBeatSDK/leantegra-android-sdk_1.4.0.aar) into project's `libs` directory; 
+1. Put [leantegra-android-sdk_1.5.0.aar](https://github.com/leantegra/AndroidWiBeatSDK/blob/master/WiBeatSDK/leantegra-android-sdk_1.5.0.aar) into project's `libs` directory;
 2. Add into `build.gradle`:
 
   ```groovy
@@ -29,7 +29,7 @@ Features:
 
   ```groovy
   dependencies {
-    compile(name:'leantegra-android-sdk_1.4.0', ext:'aar')
+    compile(name:'leantegra-android-sdk_1.5.0', ext:'aar')
   }
 ```
 4. All needed permissions (`BLUETOOTH`, `BLUETOOTH_ADMIN` and `INTERNET`) and services will be merged from SDK's `AndroidManifest.xml` to your application's `AndroidManifest.xml`;

@@ -1,5 +1,10 @@
 Changelog
 =====================
+## 1.5.0 (May 17, 2017)
+- Added Proximity Analytics functionality;
+- Support of new CMS API (categories, segments, etc.);
+- Bug fixing and stability improvements.
+
 ## 1.4.0 (Mar 14, 2017)
 - Mobile RTLS;
 - Mobile map functionality;
