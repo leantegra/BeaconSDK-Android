@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.leantegra.wibeat.sdk.LeantegraSDK;
 import com.leantegra.wibeat.sdk.cloud.analytics.AdvertisingNotificationManager;
+import com.leantegra.wibeat.sdk.cloud.model.CMSRule;
 import com.leantegra.wibeat.sdk.monitoring.service.ScanError;
 
 /**
@@ -38,6 +39,11 @@ public class MyApplication extends Application implements AdvertisingNotificatio
     @Override
     public void onError(ScanError scanError) {
         Toast.makeText(this, scanError.toString(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRuleDetected(CMSRule cmsRule) {
+
     }
 
 }
