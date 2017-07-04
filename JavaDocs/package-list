@@ -18,4 +18,6 @@ com.leantegra.wibeat.sdk.monitoring.service
 com.leantegra.wibeat.sdk.monitoring.service.scanner
 com.leantegra.wibeat.sdk.rtls
 com.leantegra.wibeat.sdk.rtls.map
+com.leantegra.wibeat.sdk.rtls.map.osm
+com.leantegra.wibeat.sdk.rtls.map.routing
 com.leantegra.wibeat.sdk.utils
