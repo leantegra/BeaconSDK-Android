@@ -23,5 +23,5 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.3.1'
-    compile(name:'leantegra-android-sdk_1.5.0', ext:'aar')
+    compile(name:'leantegra-android-sdk_1.6.0', ext:'aar')
 }

@@ -6,9 +6,10 @@
     android:layout_height="match_parent"
     tools:context="com.leantegra.mobilertls.MainActivity">
 
-    <com.leantegra.wibeat.sdk.rtls.map.IndoorMapView
+    <fragment
         android:id="@+id/map"
+        android:name="com.leantegra.wibeat.sdk.rtls.map.VenueMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

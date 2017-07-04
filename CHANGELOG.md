@@ -1,5 +1,12 @@
 Changelog
 =====================
+## 1.6.0 (Jul 04, 2017)
+- Added routing functionality;
+- Added OSM map support as main source;
+- Added SDK logger functionality;
+- Added GATT lock code generator to lock\unlock WiBeats;
+- Bug fixing and stability improvements.
+
 ## 1.5.0 (May 17, 2017)
 - Added Proximity Analytics functionality;
 - Support of new CMS API (categories, segments, etc.);
