@@ -46,7 +46,7 @@ public class MyApplication extends Application implements BackgroundScanServiceC
         //Init region list
         ArrayList<Region> regionArrayList = new ArrayList<>(1);
         regionArrayList.add(new Region.Builder(1)
-                .addAddress("F2:45:87:51:CD:5F")
+                .addAddress("56:ff:88:60:0c:f2")
                 .setProximityZone(ProximityZone.IMMEDIATE).build());
         mBackgroundManager.addMonitoringRegion(regionArrayList);
         //Connect to scan service

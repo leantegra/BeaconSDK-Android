@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements ScanServiceConsum
         });
         //Add region to monitoring
         mScanServiceManager.addMonitoringRegion(new Region.Builder(1)
-                .addAddress("56:49:85:50:2E:6F")
+                .addAddress("56:ff:88:60:0c:f2")
                 .setProximityZone(ProximityZone.NEAR).build());
         //Connect to scan service
         mScanServiceManager.bind();

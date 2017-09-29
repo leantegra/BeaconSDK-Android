@@ -4,7 +4,7 @@ The WiBeat SDK for Android is a library that allows interaction with [WiBeats](h
 It works with Android 4.4 (API level 19) or above and requires Bluetooth Low Energy support.
 
 Features:
-- WiBeat management: connect\disconnect, read\write all info from nearby device;
+- WiBeat management: connect\disconnect, read\write all info from nearby device, upgrade firmware;
 - WiBeat ranging: scanning for nearby devices, filtering by specified properties, distance to device (IMMEDIATE, NEAR, FAR zones; distance in meters), distance tunning and calibration functionality;
 - WiBeat monitoring: monitors Enter\Exit events for predefined regions that cyan be defined by multiple rules (UUID, distance, zone, Major, Minor etc.);
 - Integration with Leantegra CMS (notifications, multi-rules, analytics, proximity analytics);
@@ -16,7 +16,7 @@ Features:
 
 ### Manual installation
 
-1. Put [leantegra-android-sdk_1.6.0.aar](https://github.com/leantegra/AndroidWiBeatSDK/blob/master/WiBeatSDK/leantegra-android-sdk_1.6.0.aar) into project's `libs` directory;
+1. Put [leantegra-android-sdk_1.7.0.aar](https://github.com/leantegra/AndroidWiBeatSDK/blob/master/WiBeatSDK/leantegra-android-sdk_1.7.0.aar) into project's `libs` directory;
 2. Add into `build.gradle`:
 
   ```groovy
@@ -30,7 +30,7 @@ Features:
 
   ```groovy
   dependencies {
-    compile(name:'leantegra-android-sdk_1.6.0', ext:'aar')
+    compile(name:'leantegra-android-sdk_1.7.0', ext:'aar')
   }
 ```
 4. All needed permissions (`BLUETOOTH`, `BLUETOOTH_ADMIN` and `INTERNET`) and services will be merged from SDK's `AndroidManifest.xml` to your application's `AndroidManifest.xml`;
