@@ -8,6 +8,7 @@ com.leantegra.wibeat.sdk.database.model
 com.leantegra.wibeat.sdk.device
 com.leantegra.wibeat.sdk.device.adv
 com.leantegra.wibeat.sdk.device.connection
+com.leantegra.wibeat.sdk.device.connection.exceptions
 com.leantegra.wibeat.sdk.device.info
 com.leantegra.wibeat.sdk.monitoring
 com.leantegra.wibeat.sdk.monitoring.config
