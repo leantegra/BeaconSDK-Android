@@ -1,5 +1,11 @@
 Changelog
 =====================
+## 1.7.0 (Sep 29, 2017)
+- Updated routing functionality;
+- Added Trackables API support;
+- Added WiBeat firmware upgrade functionality;
+- Bug fixing and stability improvements.
+
 ## 1.6.0 (Jul 04, 2017)
 - Added routing functionality;
 - Added OSM map support as main source;
