@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ||
                         checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                     //Start show user location(WiBeat installation is needed)
-                    venueMap.startLocationUpdates();
+                    venueMap.setUserLocationEnabled(true);
                 } else {
                     String[] permisions = {Manifest.permission.ACCESS_COARSE_LOCATION};
                     requestPermissions(permisions, 1);
@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
         super.onPause();
         //Stop show user location
         if (venueMap != null) {
-            venueMap.stopLocationUpdates();
+            venueMap.setUserLocationEnabled(false);
         }
     }
 
@@ -54,7 +54,7 @@ public class MainActivity extends Activity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             //Start show user location(WiBeat installation is needed)
-            venueMap.startLocationUpdates();
+            venueMap.setUserLocationEnabled(true);
         }
     }
 }
