@@ -16,7 +16,7 @@ Features:
 
 ### Manual installation
 
-1. Put [leantegra-android-sdk_1.8.0.aar](https://github.com/leantegra/AndroidWiBeatSDK/blob/master/WiBeatSDK/leantegra-android-sdk_1.8.0.aar) into project's `libs` directory;
+1. Put [leantegra-android-sdk_1.9.0.aar](https://github.com/leantegra/AndroidWiBeatSDK/blob/master/WiBeatSDK/leantegra-android-sdk_1.9.0.aar) into project's `libs` directory;
 2. Add into `build.gradle`:
 
   ```groovy
@@ -30,7 +30,7 @@ Features:
 
   ```groovy
   dependencies {
-    compile(name:'leantegra-android-sdk_1.8.0', ext:'aar')
+    compile(name:'leantegra-android-sdk_1.9.0', ext:'aar')
   }
 ```
 4. All needed permissions (`BLUETOOTH`, `BLUETOOTH_ADMIN` and `INTERNET`) and services will be merged from SDK's `AndroidManifest.xml` to your application's `AndroidManifest.xml`;
@@ -59,4 +59,3 @@ Demo applications you can find [here](https://github.com/leantegra/AndroidWiBeat
 ### Changelog
 
 The list of changes in WiBeat SDK for Android located in [CHANGELOG](https://github.com/leantegra/AndroidWiBeatSDK/blob/master/CHANGELOG.md).
-
