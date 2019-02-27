@@ -1,6 +1,6 @@
 Changelog
 =====================
-## 1.9.0 (Apr , 2018)
+## 1.10.0 (Mar 1, 2019)
 - 3rd party BLE beacons support;
 - Bug fixes and stability improvements.
 
