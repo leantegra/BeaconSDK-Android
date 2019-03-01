@@ -1,7 +1,6 @@
 # WiBeat SDK for Android #
 
-The WiBeat SDK for Android is a library that allows interaction with [WiBeats](http://leantegra.com/wibeat-ble-beacon).
-It works with Android 4.4 (API level 19) or above and requires Bluetooth Low Energy support.
+The WiBeat SDK for Android is a library that allows interaction with any iBeacon / Eddystone compatible devices, including both Leantegra beacons and 3rd-party devices from other vendors (e.g. Estimote, Kontakt.io).
 
 Features:
 - WiBeat management: connect\disconnect, read\write all info from nearby device, upgrade firmware;
