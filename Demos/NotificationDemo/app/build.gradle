@@ -23,6 +23,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.3.1'
-    compile(name:'leantegra-android-sdk_1.8.0', ext:'aar')
+    compile(name:'leantegra-android-sdk_1.9.0', ext:'aar')
     compile 'com.google.android.gms:play-services-ads:10.2.1'
 }

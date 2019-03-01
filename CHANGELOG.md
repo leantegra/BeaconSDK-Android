@@ -1,5 +1,9 @@
 Changelog
 =====================
+## 1.10.0 (Mar 1, 2019)
+- 3rd party BLE beacons support;
+- Bug fixes and stability improvements.
+
 ## 1.8.0 (Dec 27, 2017)
 - New Campaign Analytics functionality;
 - Routing functionality improvements;
