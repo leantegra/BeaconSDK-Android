@@ -5,7 +5,7 @@ BLE Beacon SDK for Android is a library that allows interaction with any iBeacon
 Features:
 - WiBeat management: connect\disconnect, read\write all info from nearby device, upgrade firmware;
 - WiBeat ranging: scanning for nearby devices, filtering by specified properties, distance to device (IMMEDIATE, NEAR, FAR zones; distance in meters), distance tunning and calibration functionality;
-- WiBeat monitoring: monitors Enter\Exit events for predefined regions that cyan be defined by multiple rules (UUID, distance, zone, Major, Minor etc.);
+- WiBeat monitoring: monitors Enter\Exit events for predefined regions that can be defined by multiple rules (UUID, distance, zone, Major, Minor etc.);
 - Integration with Leantegra CMS (notifications, multi-rules, analytics, proximity analytics);
 - Mobile RTLS: calculates user's phone position in location that is covered by WiBeats;
 - Mobile Routing: calculates shortest route and distance between two points;
